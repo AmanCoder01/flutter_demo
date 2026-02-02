@@ -9,7 +9,6 @@ class HiveService {
   Future<void> saveHome(Map<String, dynamic> json) async {
    
    await _homeBox.put('home_cache', json);
-
   }
 
   /// Read JSON Map

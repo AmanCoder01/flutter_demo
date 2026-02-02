@@ -1,4 +1,7 @@
 import 'dart:convert';
+import 'package:hive/hive.dart';
+
+part "home_model.g.dart";
 
 HomeModel homeModelFromJson(String str) =>
     HomeModel.fromJson(json.decode(str));
@@ -6,17 +9,39 @@ HomeModel homeModelFromJson(String str) =>
 String homeModelToJson(HomeModel data) =>
     json.encode(data.toJson());
 
+@HiveType(typeId: 0)
 class HomeModel {
+   @HiveField(0)
   List<String>? homePageConfiguration;
+
+  @HiveField(1)
   int? iconType;
+
+  @HiveField(2)
   List<HomepageProduct>? homepageProducts;
+
+  @HiveField(3)
   List<BannerModel>? banners;
+
+  @HiveField(4)
   List<BannerModel>? featuredCategory;
+
+  @HiveField(5)
   List<Category>? categories;
+
+  @HiveField(6)
   Settings? settings;
+
+  @HiveField(7)
   int? count;
+
+  @HiveField(8)
   ThemeSettings? themeSettings;
+
+  @HiveField(9)
   String? cacheId;
+
+  @HiveField(10)
   String? sessionKey;
 
   HomeModel({
@@ -96,11 +121,21 @@ class HomeModel {
 
 /* ------------------ BANNER ------------------ */
 
+@HiveType(typeId: 1)
 class BannerModel {
+  @HiveField(0)
   int? id;
+
+  @HiveField(1)
   String? image;
+
+  @HiveField(2)
   String? dominantColor;
+
+  @HiveField(3)
   String? bannerType;
+
+  @HiveField(4)
   String? name;
 
   BannerModel({
@@ -130,11 +165,21 @@ class BannerModel {
 
 /* ------------------ CATEGORY ------------------ */
 
+@HiveType(typeId: 2)
 class Category {
+  @HiveField(0)
   int? id;
+
+  @HiveField(1)
   String? name;
+
+  @HiveField(2)
   String? icon;
+
+  @HiveField(3)
   String? dominantColor;
+
+  @HiveField(4)
   int? children;
 
   Category({
@@ -164,9 +209,15 @@ class Category {
 
 /* ------------------ HOMEPAGE PRODUCT ------------------ */
 
+@HiveType(typeId: 3)
 class HomepageProduct {
+  @HiveField(0)
   String? title;
+
+  @HiveField(1)
   String? name;
+
+  @HiveField(2)
   List<Product>? products;
 
   HomepageProduct({
@@ -194,15 +245,33 @@ class HomepageProduct {
 
 /* ------------------ PRODUCT ------------------ */
 
+@HiveType(typeId: 4)
 class Product {
+  @HiveField(0)
   String? id;
+
+  @HiveField(1)
   String? name;
+
+  @HiveField(2)
   String? bannerImage;
+
+  @HiveField(3)
   String? dominantColor;
+
+  @HiveField(4)
   String? price;
+
+  @HiveField(5)
   String? regularPrice;
+
+  @HiveField(6)
   String? averageRating;
+
+  @HiveField(7)
   String? shortDescription;
+
+  @HiveField(8)
   String? isPrefix;
 
   Product({
@@ -244,10 +313,18 @@ class Product {
 
 /* ------------------ SETTINGS ------------------ */
 
+@HiveType(typeId: 5)
 class Settings {
+  @HiveField(0)
   String? woocommerceEnableMyaccountRegistration;
+
+  @HiveField(1)
   String? woocommerceRegistrationGenerateUsername;
+
+  @HiveField(2)
   String? woocommerceRegistrationGeneratePassword;
+
+  @HiveField(3)
   String? woocommerceEnableGuestCheckout;
 
   Settings({
@@ -282,11 +359,21 @@ class Settings {
 
 /* ------------------ THEME SETTINGS ------------------ */
 
+@HiveType(typeId: 6)
 class ThemeSettings {
+  @HiveField(0)
   AppTheme? lightTheme;
+
+  @HiveField(1)
   AppTheme? darkTheme;
+
+  @HiveField(2)
   int? iconType;
+
+  @HiveField(3)
   String? appIcon;
+
+  @HiveField(4)
   String? splashIcon;
 
   ThemeSettings({
@@ -323,12 +410,24 @@ class ThemeSettings {
 
 /* ------------------ APP THEME ------------------ */
 
+@HiveType(typeId: 7)
 class AppTheme {
+  @HiveField(0)
   String? appButtonColor;
+
+  @HiveField(1)
   String? appThemeColor;
+
+  @HiveField(2)
   String? appThemeTextColor;
+
+  @HiveField(3)
   String? buttonTextColor;
+
+  @HiveField(4)
   String? appLogo;
+
+  @HiveField(5)
   String? splashImage;
 
   AppTheme({
