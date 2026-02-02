@@ -12,10 +12,9 @@ import 'package:hive_new/presentation/screens/home_screen.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Hive.initFlutter();
-  final homeBox = await Hive.openBox('home');
+  await HiveService.init();
 
-  final hiveService = HiveService(homeBox);
+  final hiveService = HiveService();
 
   final dio = DioClient.create();
   final apiService = ApiService(dio);
